@@ -15,12 +15,9 @@ public class HdfsFileCopy {
 
     public static void main(String[] args) {
 
-        System.out.println("Hdfs Copy Job is started");
         //input and output path
         String inputPath = args[0];
         String outputPath = args[1];
-        System.out.println("inputPath::" + inputPath);
-        System.out.println("outputPath::" + outputPath);
 
         Properties properties = new Properties();
         AppProps.setApplicationJarClass(properties, HdfsFileCopy.class);
@@ -33,6 +30,5 @@ public class HdfsFileCopy {
         HadoopFlowConnector flowConnector = new HadoopFlowConnector(properties);
         Flow flow = flowConnector.connect("File Copy", inTap, outTap, copyPipe);
         flow.complete();
-        System.out.println("Hdfs Copy  is completed");
     }
 }

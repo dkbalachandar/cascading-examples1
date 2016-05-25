@@ -17,12 +17,9 @@ public class LocalFileCopy {
 
     public static void main(String[] args) {
 
-        System.out.println("Local File Copy Job is started");
         //input and output path
         String inputPath = args[0];
         String outputPath = args[1];
-        System.out.println("inputPath::" + inputPath);
-        System.out.println("outputPath::" + outputPath);
 
         Properties properties = new Properties();
         AppProps.setApplicationJarClass(properties, LocalFileCopy.class);
@@ -36,7 +33,6 @@ public class LocalFileCopy {
         LocalFlowConnector flowConnector = new LocalFlowConnector(properties);
         Flow flow = flowConnector.connect("File Copy", inTap, outTap, copyPipe);
         flow.complete();
-        System.out.println("Local File Copy is completed");
     }
 
 }
